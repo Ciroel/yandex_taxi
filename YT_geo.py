@@ -20,6 +20,8 @@ target = train_raw['burned'].values
 x_col = ['due', 'dist','lat','lon']
 train = train_raw[x_col]
 
+# Забыл сказать - был добавлен признак часов со сдвинутыми нулями
+
 def cycle_it(data_raw, min, max, n, name):
     if n == 1: return data_raw
     data = np.array([data_raw]*n).T
@@ -63,12 +65,12 @@ train_new = preprocess_data(train)
 test_new = preprocess_data(test)
 
 # Для сохранения
-# joblib.dump(train_new, 'train_new_geo_0')
-# joblib.dump(train_new, 'test_new_geo_0')
+joblib.dump(train_new, 'train_new_geo_0')
+joblib.dump(train_new, 'test_new_geo_0')
 
 # Для загрузки
-train_new = joblib.load('train_new_geo_0')
-test_new = joblib.load('test_new_geo_0')
+# train_new = joblib.load('train_new_geo_0')
+# test_new = joblib.load('test_new_geo_0')
 
 bound = int(train_new.shape[0]*0.9)
 x_train, x_val = train_new[:bound], train_new[bound:]
