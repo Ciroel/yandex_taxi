@@ -40,7 +40,7 @@ from dateutil import parser
 
 def preprocess_data(data):
     datetimes = list(data.due.apply(lambda x: parser.parse(x)))
-    print 'One'
+    
     rel_times = map(lambda dt: (dt.hour*60 + dt.minute)/(24.*60), datetimes)
 
     rel_times = cycle_it(np.array(rel_times),0.,1.,10,'time')
