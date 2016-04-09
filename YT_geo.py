@@ -39,8 +39,6 @@ holidays_list = map(lambda s: tuple(map(int,s.split('.'))),holidays_list)
 
 from dateutil import parser
 
-# data = train
-
 def preprocess_data(data):
     datetimes = list(data.due.apply(lambda x: parser.parse(x)))
     print 'One'
