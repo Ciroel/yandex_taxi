@@ -11,7 +11,6 @@ import seaborn as sns
 
 from datanight import download_datasets
 
-# <editor-fold desc="Reading data">
 train_raw = pd.DataFrame.from_csv("./train.csv")
 test = pd.read_csv('test.csv')
 train_raw = train_raw[::1].reset_index(drop=True)
